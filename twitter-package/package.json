@@ -1,0 +1,15 @@
+{
+  "name": "twitter-package",
+  "version": "1.0.0",
+  "description": "This is the beginning of (hopefully) a package of actions related to working with Twitter via OpenWhisk.",
+  "main": "gettweets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.81.0",
+    "twitter": "^1.7.0"
+  }
+}

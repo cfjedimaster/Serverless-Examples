@@ -1,0 +1,14 @@
+{
+  "name": "deathclock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-verifier": "^0.3.1"
+  }
+}

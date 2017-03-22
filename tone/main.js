@@ -1,8 +1,7 @@
 var watson = require('watson-developer-cloud');
 
 function main(args) {
-    console.log('called');
-    console.log(JSON.stringify(args));
+
     var tone_analyzer = watson.tone_analyzer({
         username: args.username,
         password: args.password,

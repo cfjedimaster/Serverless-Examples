@@ -53,8 +53,28 @@ function main(args) {
 
                 let text = "";
 
+                let response;
+
                 if(intent.name === "intro") {
                     text = "When is your birthday, including the year?";
+
+                    response = {
+                    "version": "1.0",
+                    "response" :{
+                        "shouldEndSession": false,
+                        "outputSpeech": {
+                            "type": "PlainText",
+                            "text": text
+                            },
+                        "reprompt": {
+                            "outputSpeech":{
+                                "type": "PlainText",
+                                "text": text
+                                }
+                            }
+                        }
+                    }
+                    
                 } else if(intent.name === "birthday") {
                     let bday = intent.slots.bday.value;
                     let result = getDeathDay(bday);
@@ -64,18 +84,19 @@ function main(args) {
                         text = "You will die on " + result.deathDay + 
                         ". That will be in "+result.secondsLeft + " seconds.";
                     }
-                }
 
-                var response = {
-                "version": "1.0",
-                "response" :{
-                    "shouldEndSession": true,
-                    "outputSpeech": {
-                        "type": "PlainText",
-                        "text": text
+                    response = {
+                    "version": "1.0",
+                    "response" :{
+                        "shouldEndSession": true,
+                        "outputSpeech": {
+                            "type": "PlainText",
+                            "text": text
+                            }
                         }
                     }
-                }
+ 
+               }
 
                 resolve(response);
 

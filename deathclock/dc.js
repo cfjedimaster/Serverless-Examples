@@ -42,12 +42,11 @@ function main(args) {
         let request = JSON.parse(body).request;
 
         alexaVerifier(signaturechainurl, signature, body, function(err) {
-            console.log('in verifier cb');
             if(err) {
                 console.log('err? '+JSON.stringify(err));
                 reject(err);
             } else {
-                console.log(request);
+                console.log(JSON.stringify(request));
                 if(!request.intent) request.intent = {name:'intro'};
                 let intent = request.intent;
 
@@ -74,15 +73,52 @@ function main(args) {
                             }
                         }
                     }
+
+                } else if(intent.name === "help") {
+                    text = "I can tell you when you will die. When is your birthday, including the year?";
+
+                    response = {
+                    "version": "1.0",
+                    "response" :{
+                        "shouldEndSession": false,
+                        "outputSpeech": {
+                            "type": "PlainText",
+                            "text": text
+                            },
+                        "reprompt": {
+                            "outputSpeech":{
+                                "type": "PlainText",
+                                "text": text
+                                }
+                            }
+                        }
+                    }
                     
+                } else if(intent.name === "AMAZON.StopIntent" || intent.name === "AMAZON.CancelIntent") {
+
+                    response = {
+                    "version": "1.0",
+                    "response" :{
+                        "shouldEndSession": true,
+                        "outputSpeech": {
+                            "type": "PlainText",
+                            "text": "Bye!"
+                            }
+                        }
+                    }
+
                 } else if(intent.name === "birthday") {
                     let bday = intent.slots.bday.value;
-                    let result = getDeathDay(bday);
-                    if(result === -1) {
-                        text = "You should be dead already!";
+                    if(!bday || bday === '') {
+                        text = "I'm sorry, but that isn't a valid day.";
                     } else {
-                        text = "You will die on " + result.deathDay + 
-                        ". That will be in "+result.secondsLeft + " seconds.";
+                        let result = getDeathDay(bday);
+                        if(result === -1) {
+                            text = "You should be dead already!";
+                        } else {
+                            text = "You will die on " + result.deathDay + 
+                            ". That will be in "+result.secondsLeft + " seconds.";
+                        }
                     }
 
                     response = {

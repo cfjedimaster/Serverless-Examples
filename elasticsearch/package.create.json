@@ -2,7 +2,7 @@
   "name": "openwhisk_es",
   "version": "1.0.0",
   "description": "",
-  "main": "bulk.js",
+  "main": "create.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

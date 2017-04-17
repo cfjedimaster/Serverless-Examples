@@ -2,3 +2,4 @@ node_modules/
 *.secret
 *.zip
 /temp/*
+creds.json

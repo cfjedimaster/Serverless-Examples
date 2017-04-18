@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+		<script>
+		$(document).ready(function() {
+			console.log('init');
+
+			$.getJSON('https://openwhisk.ng.bluemix.net/api/v1/web/rcamden@us.ibm.com_My%20Space/corstest/corstest.http?name=ray')
+			.then(function(res) {
+				console.log(res);
+			});
+		});
+		</script>
+	</body>
+</html>

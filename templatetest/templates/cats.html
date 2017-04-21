@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{title}}</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+
+		<h2>{{title}}</h2>
+		
+		<p>
+			I'd like to thank the following cats for making everything possible:
+		</p>
+
+		<ul>
+			{{#each cats}}
+			<li>{{.}}</li>
+			{{/each}}
+		</ul>
+	</body>
+</html>

@@ -6,7 +6,7 @@ function main(args) {
 	return new Promise((resolve, reject) => {
 
 		if(!args.rssurl) {
-			reject({error:"Argument rssURL not passed."});
+			reject({error:"Argument rssurl not passed."});
 		}
 
 		request.get(args.rssurl, function(error, response, body) {

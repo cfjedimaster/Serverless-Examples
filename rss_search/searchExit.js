@@ -1,7 +1,6 @@
 // I remove metadata from ES I don't care about
 function main(args) {
 
-   //first, get thie hits
    //credit for regex: http://stackoverflow.com/a/822464/52160
    let result = args.hits.hits.map((entry) => {
     return {
@@ -13,6 +12,13 @@ function main(args) {
     }  
    });
  
-    return {results:result};
+    return {
+        headers:{
+            'Access-Control-Allow-Origin':'*',
+            'Content-Type':'application/json'
+        },
+        statusCode:200,
+        body:new Buffer(JSON.stringify(result)).toString('base64')
+    };
 
 }

@@ -1,0 +1,29 @@
+
+<!--
+ wsk action update corstest/corstest2 corstest2.js --web true
+ wsk api create /corstest /test2 get corstest/corstest2 --response-type json
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+		<script>
+		$(document).ready(function() {
+			console.log('init');
+
+			$.getJSON('https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/37871051d18d0b2115da90f292458913e22e5d182c8a965fadcfbf6b5fcc96c6/corstest/test2?name=ray')
+			.then(function(res) {
+				console.log(res);
+			});
+		});
+		</script>
+	</body>
+</html>
+

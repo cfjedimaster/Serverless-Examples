@@ -24,7 +24,7 @@ function main(args) {
 		if(args.q) {
 			search.q = args.q;
 		} else if (args.body) {
-			searc.body = args.body;
+			search.body = args.body;
 		}
 
 		client.search(search).then(function (resp) {

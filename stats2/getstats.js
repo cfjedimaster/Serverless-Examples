@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const openwhisk = require('openwhisk');
 const creds = require('./creds.json');
 
@@ -5,6 +6,9 @@ const ow = openwhisk({
     apihost: creds.apihost, 
     api_key: creds.api_key}
 );
+
+//used to max out the number of activations we fetch
+const MAX_ACTS = 2000;
 
 const chalk = require('chalk');
 
@@ -14,7 +18,7 @@ if(process.argv.length == 2) {
 }
 
 const action = process.argv[2];
-process.stdout.write(chalk.blue('Fetching data for action '+action+'...\n'));
+process.stdout.write(chalk.blue('Fetching data for action '+action+'..'));
 
 let results = {
     total:0,
@@ -32,7 +36,20 @@ items reverse date sorted, but its not documented and may change in the future.
 */
 let dates = [];
 
-ow.activations.list({limit:99999,name:action,docs:true}).then(result => {
+let activations = [];
+function getAllActivations(cb,acts,skip) {
+    if(!acts) acts=[];
+    if(!skip) skip=0;
+    process.stdout.write(chalk.blue('.'));
+    ow.activations.list({limit:200, name:action, docs:true, skip:skip}).then(result => {
+        if(result.length === 0 || acts.length >= MAX_ACTS) return cb(acts);
+        acts = acts.concat(result);
+        getAllActivations(cb,acts,skip+200);
+    });
+}
+
+getAllActivations((result) => {
+    
     results.total = result.length;
     result.forEach((act) => {
         results.duration += act.duration
@@ -66,4 +83,5 @@ Average Duration (ms):          ${results.avgduration}
 `;
     process.stdout.write(chalk.green(finalResult));
     //console.log(results);
+
 });

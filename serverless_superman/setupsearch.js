@@ -9,9 +9,7 @@ function main(args) {
 
 	let result = {
 		term:"serverless",
-		since:datestr,
-		consumer_key:args.consumer_key,
-		consumer_secret:args.consumer_secret
+		since:datestr
 	}
 
 	return result;

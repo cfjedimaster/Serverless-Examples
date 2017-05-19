@@ -21,17 +21,9 @@ function main(args) {
 
 		/*
 		ok, so the next step it to tweet, for that, i need to pass:
-		consumer_key
-		consumer_secret
-		access_token_key
-		access_token_secret
 		status
 		*/
 		resolve({
-			consumer_key:args.consumer_key,
-			consumer_secret:args.consumer_secret,
-			access_token_key:args.access_token_key,
-			access_token_secret:args.access_token_secret,
 			status:newText
 		});
 

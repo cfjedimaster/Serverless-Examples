@@ -3,3 +3,4 @@ node_modules/
 *.zip
 /temp/*
 creds.json
+private_update.sh

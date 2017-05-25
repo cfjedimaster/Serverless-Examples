@@ -6,7 +6,7 @@ function main(args) {
 		*/
 		let parts = args.__ow_path.split('/');
 		if(parts.length === 3 && parts[1].toLowerCase() === 'name') {
-			args.name = parts[2];
+			args.name = decodeURIComponent(parts[2]).replace(/\+/g, ' ');
 		}
 	}
 

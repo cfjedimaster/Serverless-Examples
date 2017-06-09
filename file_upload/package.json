@@ -1,0 +1,15 @@
+{
+  "name": "file_upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "filetest1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parted": "^0.1.1",
+    "string-to-stream": "^1.1.0"
+  }
+}

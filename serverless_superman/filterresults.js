@@ -5,7 +5,7 @@ also, we remove a shit-ton of stuff from each tweet
 */
 
 //if a tweet is older than this in minutes, kill it
-const TOO_OLD = 10;
+const TOO_OLD = 30;
 
 // http://stackoverflow.com/a/7709819/52160
 function diffInMinutes(d1,d2) {
@@ -17,7 +17,6 @@ function diffInMinutes(d1,d2) {
 }
 
 function main(args) {
-
 	let now = new Date();
 
 	let result = args.tweets.filter( (tweet) => {

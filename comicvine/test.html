@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+		<style>
+		body {
+			font-family: 'Banger', cursive;
+			background-color: #ffeb3b;
+		}
+
+		a {
+			color: black;	
+		}
+
+		img.heroImage {
+			float: right;
+			max-width: 500px;
+		}
+		</style>
+
+	</head>
+	<body>
+
+	<div id="result"></div>
+
+	<p>
+		All data from <a href="https://comicvine.gamespot.com" target="_new">ComicVine</a>.
+	</p>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script>
+	let api = 'https://service.us.apiconnect.ibmcloud.com/gws/apigateway/api/37871051d18d0b2115da90f292458913e22e5d182c8a965fadcfbf6b5fcc96c6/comicvine/randomCharacter';
+
+
+	$(document).ready(() => {
+
+		$("#result").html('<i>Loading Random Character...</i>');
+
+		$.get(api).then((res) => {
+			console.log(res);
+			if(res.error) {
+				alert('Error! (check console)');
+				return;
+			}
+			let char = res.character;
+			let friendsTemplate = '';
+			let enemiesTemplate = '';
+			let powersTemplate = '';
+			let teamsTemplate = '';
+			let creatorsTemplate = '';
+
+			//need to find female
+			let defaultMaleImage = 'https://comicvine.gamespot.com/api/image/scale_large/1-male-good-large.jpg';
+			let image = '';
+			if(!char.image) {
+				image = defaultMaleImage;
+			} else if(char.image && !char.image.super_url) {
+				image = defaultMaleImage;
+			} else {
+				image = char.image.super_url;
+			}
+
+			let publisher = 'None';
+			if(char.publisher && char.publisher.name) publisher = char.publisher.name;
+
+			/*
+			If no description, copy deck over. deck can be blank too though
+			also sometimes its <br/>, sometimes <p>.</p>
+			*/
+			if(char.description && (char.description === '<br/>' || char.description === '<p>.</p>')) delete char.description;
+
+			if(!char.description && !char.deck) {
+				char.description = 'No description.';
+			} else if(!char.description) {
+				char.description = char.deck;
+			}
+
+			if(char.character_friends.length) {
+				friendsTemplate = '<h2>Friends</h2><ul>';
+				char.character_friends.forEach((friend) => {
+					friendsTemplate += `<li><a href="${friend.site_detail_url}">${friend.name}</a></li>`;
+				});
+				friendsTemplate += '</ul>';
+			} 
+
+			if(char.character_enemies.length) {
+				enemiesTemplate = '<h2>Enemies</h2><ul>';
+				char.character_enemies.forEach((enemy) => {
+					enemiesTemplate += `<li><a href="${enemy.site_detail_url}" target="_new">${enemy.name}</a></li>`;
+				});
+				enemiesTemplate += '</ul>';
+			} 
+
+			if(char.powers.length) {
+				powersTemplate = '<h2>Powers</h2><ul>';
+				char.powers.forEach((power) => {
+					powersTemplate += `<li>${power.name}</li>`;
+				});
+				powersTemplate += '</ul>';
+			} 
+
+			if(char.teams.length) {
+				teamsTemplate = '<h2>Teams</h2><ul>';
+				char.teams.forEach((team) => {
+					teamsTemplate += `<li><a href="${team.site_detail_url}" target="_new">${team.name}</a></li>`;
+				});
+				teamsTemplate += '</ul>';
+			} 
+
+			if(char.creators.length) {
+				creatorsTemplate = '<h2>Creators</h2><ul>';
+				char.creators.forEach((creator) => {
+					creatorsTemplate += `<li><a href="${creator.site_detail_url}" target="_new">${creator.name}</a></li>`;
+				});
+				creatorsTemplate += '</ul>';
+			} 
+
+			let mainTemplate = `
+			<h1>${char.name}</h1>
+			<p>
+				<strong>Publisher:</strong> ${publisher}<br/>
+				<strong>First Issue:</strong> <a href="${char.first_issue.site_detail_url}" target="_new">${char.first_issue.volume.name} ${char.first_issue.issue_number} (${char.first_issue.cover_date})</a><br/>
+			</p>
+
+			<a href="${char.site_detail_url}" target="_new"><img class="heroImage" src="${image}"></a>
+			<p>${char.description}</p>
+
+			${creatorsTemplate}
+			${powersTemplate}
+			${teamsTemplate}
+			${friendsTemplate}
+			${enemiesTemplate}
+			`;
+
+			$('#result').html(mainTemplate);
+		});
+
+	});
+
+	</script>
+	</body>
+</html>

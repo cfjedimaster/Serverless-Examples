@@ -20,7 +20,7 @@ function main(args) {
             qs: {
                 api_key: args.key,
                 format:'json',
-                field_list:'aliases,deck,description,first_appeared_in_issue,image,real_name,name,id,publisher,api_detail_url,site_detail_url',
+                field_list:'aliases,deck,description,first_appeared_in_issue,image,real_name,name,id,publisher,api_detail_url,site_detail_url,gender',
                 limit:1,
                 offset:getRandomInt(0,totalChars)
             },
@@ -54,10 +54,30 @@ function main(args) {
             for(let key in detail) {
                 character[key] = detail[key];
             }
+            /*
+            craft a url for the issue based on first_appeared_in_issue.
+            note it includes an api_detail_url but it doesn't work
+            */
+            console.log('testing first', character.first_appeared_in_issue);
+            return rp({
+                uri:'https://www.comicvine.com/api/issues',
+                qs:{
+                    api_key:args.key,
+                    format:'json',
+                    filter:'id:'+character.first_appeared_in_issue.id
+                },
+                headers: {
+                    'User-Agent': 'Request-Promise'
+                },
+                json: true
+            });
+        })
+        .then(function(json) {
+            character.first_issue = json.results[0];
             resolve({character:character});
         })
         .catch(function(err) {
-            console.log('error in rp');
+            console.log('error in rp',err);
             reject({error:err});
         });
             

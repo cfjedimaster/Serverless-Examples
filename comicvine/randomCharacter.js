@@ -20,7 +20,7 @@ function main(args) {
             qs: {
                 api_key: args.key,
                 format:'json',
-                field_list:'aliases,deck,description,first_appeared_in_issue,image,real_name,name,id,publisher,api_detail_url',
+                field_list:'aliases,deck,description,first_appeared_in_issue,image,real_name,name,id,publisher,api_detail_url,site_detail_url',
                 limit:1,
                 offset:getRandomInt(0,totalChars)
             },

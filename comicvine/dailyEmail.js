@@ -47,41 +47,41 @@ function main(args) {
 		}
 
 		if(char.character_friends.length) {
-			friendsTemplate = `<h2 style="font-family: 'Banger', cursive;">Friends</h2><ul>`;
+			friendsTemplate = `<h2">Friends</h2><ul>`;
 			char.character_friends.forEach((friend) => {
-				friendsTemplate += `<li style="font-family: 'Banger', cursive;"><a href="${friend.site_detail_url}">${friend.name}</a></li>`;
+				friendsTemplate += `<li><a href="${friend.site_detail_url}">${friend.name}</a></li>`;
 			});
 			friendsTemplate += '</ul>';
 		} 
 
 		if(char.character_enemies.length) {
-			enemiesTemplate = `<h2 style="font-family: 'Banger', cursive;">Enemies</h2><ul>`;
+			enemiesTemplate = `<h2>Enemies</h2><ul>`;
 			char.character_enemies.forEach((enemy) => {
-				enemiesTemplate += `<li style="font-family: 'Banger', cursive;"><a href="${enemy.site_detail_url}" target="_new">${enemy.name}</a></li>`;
+				enemiesTemplate += `<li><a href="${enemy.site_detail_url}" target="_new">${enemy.name}</a></li>`;
 			});
 			enemiesTemplate += '</ul>';
 		} 
 
 		if(char.powers.length) {
-			powersTemplate = `<h2 style="font-family: 'Banger', cursive;">Powers</h2><ul>`;
+			powersTemplate = `<h2>Powers</h2><ul>`;
 			char.powers.forEach((power) => {
-				powersTemplate += `<li style="font-family: 'Banger', cursive;">${power.name}</li>`;
+				powersTemplate += `<li>${power.name}</li>`;
 			});
 			powersTemplate += '</ul>';
 		} 
 
 		if(char.teams.length) {
-			teamsTemplate = `<h2 style="font-family: 'Banger', cursive;">Teams</h2><ul>`;
+			teamsTemplate = `<h2>Teams</h2><ul>`;
 			char.teams.forEach((team) => {
-				teamsTemplate += `<li style="font-family: 'Banger', cursive;"><a href="${team.site_detail_url}" target="_new">${team.name}</a></li>`;
+				teamsTemplate += `<li><a href="${team.site_detail_url}" target="_new">${team.name}</a></li>`;
 			});
 			teamsTemplate += '</ul>';
 		} 
 
 		if(char.creators.length) {
-			creatorsTemplate = `<h2 style="font-family: 'Banger', cursive;">Creators</h2><ul>`;
+			creatorsTemplate = `<h2>Creators</h2><ul>`;
 			char.creators.forEach((creator) => {
-				creatorsTemplate += `<li style="font-family: 'Banger', cursive;"><a href="${creator.site_detail_url}" target="_new">${creator.name}</a></li>`;
+				creatorsTemplate += `<li><a href="${creator.site_detail_url}" target="_new">${creator.name}</a></li>`;
 			});
 			creatorsTemplate += '</ul>';
 		} 
@@ -90,18 +90,17 @@ function main(args) {
 		<html>
 		<head>
 		<meta name="viewport" content="width=device-width">
-		<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
 		</head>
 		<body style="background-color: #ffeb3b;padding: 10px">
 
-		<h1 style="font-family: 'Banger', cursive;">${char.name}</h1>
-		<p style="font-family: 'Banger', cursive;">
+		<h1>${char.name}</h1>
+		<p>
 			<strong>Publisher:</strong> ${publisher}<br/>
 			<strong>First Issue:</strong> <a href="${char.first_issue.site_detail_url}" target="_new">${char.first_issue.volume.name} ${char.first_issue.issue_number} (${char.first_issue.cover_date})</a><br/>
 		</p>
 
 		<a href="${char.site_detail_url}" target="_new"><img style="max-width:500px" title="Character Image" src="${image}"></a>
-		<p style="font-family: 'Banger', cursive;">${char.description}</p>
+		<p>${char.description}</p>
 
 		${creatorsTemplate}
 		${powersTemplate}

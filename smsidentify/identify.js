@@ -6,14 +6,7 @@ const VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v
 
 function main(args) {
 
-	/*
-	I'm part of a flow where I *need* imageUrl, and I'm going to carry over everything else
-	I was sent, BUT that, so I can return tags + original stuff.
-	*/
 	let result = {};
-	for(key in args) {
-		if(key !== 'imageUrl') result[key] = args[key];
-	}
 
 	let visual_recognition = new VisualRecognitionV3({
 		api_key: args.api_key,

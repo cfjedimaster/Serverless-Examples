@@ -1,9 +1,7 @@
-const twilio = require('twilio');
 
 function main(args) {
 	return new Promise((resolve, reject) => {
 
-	    var client = new twilio(args.accountSid, args.authToken);
 		/*
 		ok, so if #1 doesn't tie with #2, return "1 or maybe a 2"
 		if it ties, return "1 or 2"

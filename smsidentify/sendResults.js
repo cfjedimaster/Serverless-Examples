@@ -15,18 +15,13 @@ function main(args) {
 			message = `I think this is a ${args.tags[0].class} or a ${args.tags[1].class}.`;
 		}
 		console.log('Message to send via SMS: '+message);
-        client.messages.create({
-            body: message,
-            to: args.from,  
-            from: args.to
-        })
-        .then((message) => {
-            resolve({result:1});
-        })
-        .catch(err => {
-            console.log(err);
-            reject({error:err});
-        });
+
+		resolve({
+			headers:{
+				'Content-Type':'text/xml'
+			},
+			body:'<Response><Message>'+message+'</Message></Response>'
+		});
 
 	});
 }

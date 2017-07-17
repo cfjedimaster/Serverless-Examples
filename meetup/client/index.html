@@ -5,10 +5,37 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-    
-        <h1>Meetup Search</h1>
-        
+
+        <div id="content">
+
+            <div id="form">
+                <h1>US Meetup Search</h1>
+
+                <form id="searchForm">
+                <p>
+                <label for="search">Keyword: </label>
+                <input type="search" id="search" value="serverless">
+                </p>
+
+                <p>
+                <input type="submit" id="submitBtn">
+                </p>
+                </form>
+            </div>
+
+            <div id="results">
+                <h1>Results</h1>
+
+                <div id="resultItems"></div>
+
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+        <script src="app.js"></script>
     </body>
 </html>

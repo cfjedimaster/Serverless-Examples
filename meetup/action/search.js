@@ -38,7 +38,19 @@ function main(args) {
 
         rp(options).then((resp) => {
             //console.log(resp.headers);
-            resolve({result:resp.body});
+            /*
+            When using radius=global and a country, the country filter doesn't
+            quite work. SO let's fix that.
+            */
+            let items = resp.body;
+            console.log('country='+args.country+' radius='+args.radius);
+            if(args.country && args.country !== '' && args.radius === 'global') {
+                console.log('Doing post filter on country');
+                items = items.filter((item) => {
+                    return (item.country === args.country);
+                });
+            }
+            resolve({result:items});
         }).catch((err) => {
             reject({error:err});
         });

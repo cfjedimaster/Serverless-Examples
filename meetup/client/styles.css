@@ -1,0 +1,12 @@
+#content {
+    display:flex;
+    flex-flow: row;
+}
+
+#content > #form {
+    flex: 1 1 30%;
+}
+
+#content > #results {
+    flex: 1 1 70%;
+}

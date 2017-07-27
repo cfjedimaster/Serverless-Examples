@@ -1,5 +1,5 @@
 let $status;
-const API = 'http://openwhisk.ng.bluemix.net/api/v1/web/rcamden@us.ibm.com_My%20Space/safeToDelete/isVampireSafe.json';
+const API = 'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden@us.ibm.com_My%20Space/safeToDelete/isVampireSafe.json';
 const GOOD = `<p>It is totally safe to be outside as a vampire. Happy Hunting!</p>`;
 const BAD = `<p>Sorry, the sun is up. Stay indoors!</p>`;
 

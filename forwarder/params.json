@@ -1,0 +1,8 @@
+{
+    "$actionName":"safeToDelete/doubler",
+    "$actionArgs":["number"],
+    "$forward":["a","b"],
+    "number":8,
+    "b":"banana",
+    "a":"apple"
+}

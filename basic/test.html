@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <style>
+        #code {
+            width: 500px;
+            height: 300px;
+        } 
+        </style>
+    </head>
+    <body>
+
+        <h1>Serverless Basic</h1>
+
+        <textarea id="code">
+10 print "hello"
+        </textarea>
+        <p/>
+        <button id="runButton">Run</button>
+        <div id="result"><h2>Output</h2><pre></pre></div>
+
+        <script>
+        let API = 'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/basic/basic.json';
+        let $code, $runButton, $result;
+
+        document.addEventListener('DOMContentLoaded', init, false);
+
+        function init(e) {
+            $code = document.querySelector('#code');
+            $runButton = document.querySelector('#runButton');
+            $result = document.querySelector('#result pre');
+
+            $runButton.addEventListener('click', runCode, false);
+        }
+
+        function runCode(e) {
+            let code = $code.value;
+            if(code === '') return;
+            console.log('code',code);
+            fetch(API, {
+                method:'POST', 
+                body:'input='+encodeURIComponent(code),
+                headers:{
+                    'Content-Type':'application/x-www-form-urlencoded; charset=utf-8'
+                }
+            }).then((res) => res.json()).then((res) => {
+                if(res.error) {
+                    $result.innerHTML = "An error was thrown. Write better code.";
+                } else {
+                    $result.innerHTML = res.result;
+                }
+            }).catch((err) => {
+              console.error('error', err); 
+            });
+        }
+        </script>
+    </body>
+</html>

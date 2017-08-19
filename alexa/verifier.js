@@ -11,7 +11,7 @@ function main(args) {
 
         alexaVerifier(signaturechainurl, signature, body, function(err) {
             if(err) reject(err);
-            resolve({request:request});
+            resolve(JSON.parse(body));
         });
 
     });

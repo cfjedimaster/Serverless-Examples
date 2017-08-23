@@ -20,7 +20,7 @@ exports.main = (args) => {
 
 			let result = [];
 			events.forEach(e => result.push(flattenEvent(e)));
-			resolve(events);
+			resolve({events:result});
 		});
 	});
 }

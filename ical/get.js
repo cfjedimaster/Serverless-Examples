@@ -24,7 +24,7 @@ exports.main = (args) => {
 				resolve({events:result});
 			} catch(e) {
 				console.log(e);
-				reject(e);
+				reject(e.message);
 			}
 		})
 		.catch((e) => {

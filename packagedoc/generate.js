@@ -14,8 +14,7 @@ if(process.argv.length === 4) output = process.argv[3];
 
 console.log('Attempt to generate docs for '+package);
 
-//TODO - replace with env
-const api_key = '';
+const api_key = process.env['__OW_API_KEY'];
 let options = {apihost: 'openwhisk.ng.bluemix.net', api_key: api_key};
 let ow = openwhisk(options);
 

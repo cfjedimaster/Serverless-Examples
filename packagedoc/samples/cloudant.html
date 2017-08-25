@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Package: /whisk.system/cloudant</title>
+
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<style>
+	.container {
+		margin-top:70px;
+	}
+
+	/* credit: https://www.servermule.com.au/help/bootstrap-anchors-fixed-nav/ */
+	section {
+		padding-top: 70px;
+		margin-top:-70px;
+	}
+
+	</style>
+  </head>
+
+  <body>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    	<a class="navbar-brand" href="#">Package: /whisk.system/cloudant</a>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+					<a class="nav-link" href="#parameters">Parameters</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#actions">Actions</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#feeds">Feeds</a>
+			</li>
+		</ul>
+	</nav>
+
+    <div class="container">
+
+        <h1>/whisk.system/cloudant</h1>
+        <p class="lead">Cloudant database service (version: 0.0.121)</p>
+
+		<section id="parameters">				
+		<h2>Parameters</h2>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Name</th>
+					<th>Default</th>
+					<th>Type</th>
+					<th>Required</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>bluemixServiceName </td>
+					<td>cloudantNoSQLDB</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>username (Your Cloudant username)</td>
+					<td></td>
+					<td></td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>host (This is usually your username.cloudant.com)</td>
+					<td></td>
+					<td></td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>dbname (The name of your Cloudant database)</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>apihost </td>
+					<td>openwhisk.ng.bluemix.net</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>password (Your Cloudant password)</td>
+					<td></td>
+					<td>password</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>overwrite </td>
+					<td></td>
+					<td>boolean</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		</section>
+
+		<section id="actions">		
+		<h2>Actions</h2>
+
+		<table class="table table-striped table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Name</th>
+					<th>Parameters (* is required)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						create-attachment (Create document attachment in database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docrev<i>*</i> 
+							
+							
+							</li>
+							<li>
+							attachment<i>*</i> 
+							
+							
+							</li>
+							<li>
+							attachmentname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							contenttype<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						create-database (Create Cloudant database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						create-document (Create document in database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							doc<i>*</i> 
+							(The JSON document to insert)
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						create-query-index (Create a Cloudant Query index into database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							index<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						delete-attachment (Delete document attachment from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docrev<i>*</i> 
+							
+							
+							</li>
+							<li>
+							attachmentname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						delete-database (Delete Cloudant database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						delete-document (Delete document from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							(The Cloudant document id to delete)
+							
+							</li>
+							<li>
+							docrev<i>*</i> 
+							(The document revision number)
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						delete-query-index (Delete index from design document)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							indexname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						delete-view (Delete view from design document)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							viewname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						exec-query-find (Execute query against Cloudant Query index)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							query<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						exec-query-search (Execute query against Cloudant search)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							indexname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							search<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						exec-query-view (Call view in design document from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							viewname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						list-all-databases (List all Cloudant databases)
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						list-design-documents (List design documents from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							includedocs 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						list-documents (List all docs from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						list-query-indexes (List Cloudant Query indexes from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						manage-bulk-documents (Create, Update, and Delete documents in bulk)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docs<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						read (Read document from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							id<i>*</i> 
+							(The Cloudant document id to fetch)
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						read-attachment (Read document attachment from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							attachmentname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						read-changes-feed (Read Cloudant database changes feed (non-continuous))
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						read-database (Read Cloudant database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						read-document (Read document from database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							(The Cloudant document id to fetch)
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						read-updates-feed (Read updates feed from Cloudant account (non-continuous))
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						update-attachment (Update document attachment in database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docid<i>*</i> 
+							
+							
+							</li>
+							<li>
+							docrev<i>*</i> 
+							
+							
+							</li>
+							<li>
+							attachment<i>*</i> 
+							
+							
+							</li>
+							<li>
+							attachmentname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							contenttype<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						update-document (Update document in database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							doc<i>*</i> 
+							
+							
+							</li>
+							<li>
+							params 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						write (Write document in database)
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							doc<i>*</i> 
+							
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		</section>
+
+		<section id="feeds">		
+		<h2>Feeds</h2>
+
+		<table class="table table-striped table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Name</th>
+					<th>Parameters (* is required)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						changes (Database change feed)
+						<p/>
+						<b>Sample Input:</b>
+						<pre><code>{
+	&quot;dbname&quot;: &quot;mydb&quot;,
+	&quot;filter&quot;: &quot;mailbox/by_status&quot;,
+	&quot;query_params&quot;: {
+		&quot;status&quot;: &quot;new&quot;
+	}
+}</code></pre>
+					</td>
+					<td>
+						<ul>
+							<li>
+							dbname<i>*</i> 
+							
+							
+							</li>
+							<li>
+							filter 
+							(The name of your Cloudant database filter)
+							(type: string)
+							</li>
+							<li>
+							query_params 
+							(JSON Object containing query parameters that are passed to the filter)
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</section>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  </body>
+</html>

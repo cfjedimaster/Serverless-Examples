@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Package: /whisk.system/github</title>
+
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<style>
+	.container {
+		margin-top:70px;
+	}
+
+	/* credit: https://www.servermule.com.au/help/bootstrap-anchors-fixed-nav/ */
+	section {
+		padding-top: 70px;
+		margin-top:-70px;
+	}
+
+	</style>
+  </head>
+
+  <body>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    	<a class="navbar-brand" href="#">Package: /whisk.system/github</a>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+					<a class="nav-link" href="#parameters">Parameters</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#actions">Actions</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#feeds">Feeds</a>
+			</li>
+		</ul>
+	</nav>
+
+    <div class="container">
+
+        <h1>/whisk.system/github</h1>
+        <p class="lead">Package which contains actions and feeds to interact with Github (version: 0.0.191)</p>
+
+		<section id="parameters">				
+		<h2>Parameters</h2>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Name</th>
+					<th>Default</th>
+					<th>Type</th>
+					<th>Required</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>endpoint </td>
+					<td>openwhisk.ng.bluemix.net</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		</section>
+
+		<section id="actions">		
+		<h2>Actions</h2>
+
+		<p>This package has no actions.</p>
+
+		</section>
+
+		<section id="feeds">		
+		<h2>Feeds</h2>
+
+		<table class="table table-striped table-bordered">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Name</th>
+					<th>Parameters (* is required)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						webhook (Creates a webhook on GitHub to be notified on selected changes)
+						<p/>
+						<b>Sample Input:</b>
+						<pre><code>{
+	&quot;accessToken&quot;: &quot;123ABCXYZ&quot;,
+	&quot;events&quot;: &quot;push,delete,pull-request&quot;,
+	&quot;repository&quot;: &quot;myRepository or myOrganization/myRepository&quot;,
+	&quot;username&quot;: &quot;myUserName&quot;
+}</code></pre>
+					</td>
+					<td>
+						<ul>
+							<li>
+							username<i>*</i> 
+							(Your GitHub username)
+							
+							</li>
+							<li>
+							repository<i>*</i> 
+							(The name of a GitHub repository)
+							
+							</li>
+							<li>
+							accessToken<i>*</i> 
+							(A webhook or personal token)
+							
+							</li>
+							<li>
+							events<i>*</i> 
+							(A comma-separated list)
+							
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</section>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  </body>
+</html>

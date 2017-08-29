@@ -1,0 +1,16 @@
+{
+  "name": "util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "activations.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Raymond Camden <raymondcamden@gmail.com> (https://www.raymondcamden.com)",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "openwhisk": "^3.7.0"
+  }
+}

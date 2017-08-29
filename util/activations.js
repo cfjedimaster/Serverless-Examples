@@ -39,7 +39,7 @@ ow.activations.list(activationOptions).then(result => {
 });
 
 function dtFormat(d) {
-	result = '';
+	let result = '';
 	result += d.getMonth()+1;
 	result += '/';
 	result += d.getDate();

@@ -33,6 +33,13 @@ function main(args) {
 		let age = diffInMinutes(now, date);
 		if(age > TOO_OLD) return false;
 
+		/*
+		New filter. There is a tweet that gets sent multiple
+		times a day, every day, that is just: "In my plan ... we are serverless"
+		That is a dumb tweet. I don't want to use it.
+		*/
+		if(tweet.text.toLowerCase().indexOf("In my plan ... we are serverless") >= 0) return false;
+		
 		return true;
 	});
 

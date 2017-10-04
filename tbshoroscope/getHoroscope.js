@@ -66,7 +66,7 @@ function randRange(minNum, maxNum) {
 
 let nouns, adjectives;
 
-function main(args) {
+function create(args) {
 
 	//see if we have a cache noun list
 	if(!nouns) {
@@ -82,8 +82,8 @@ function main(args) {
 	horoscope += getRomanticString();
 	horoscope += "\n\n";
 	horoscope += "Your lucky numbers are " + randRange(1,10) + ", " + randRange(1,10) + ", and " + getNoun() + ".";
-	return { horoscope: horoscope };
+	return horoscope;
 
 }
 
-exports.main = main;
+exports.create = create;

@@ -1,2 +1,4 @@
 #!/bin/bash
-wsk action update tone --kind nodejs:6 main.js
+zip -rq temp.zip main.js package.json node_modules
+wsk action update watson/tone --kind nodejs:6 temp.zip
+rm temp.zip

@@ -1,0 +1,7 @@
+wsk action create --sequence getall getall_entry,Bluemix_CloudantForDemos_Credent
+ials-1/list-document
+
+
+
+https://0b5d242f-bda1-4d5b-9e37-22a6722f162f-bluemix.cloudant.com/blog/_design/allSorted/_view/allSorted?limit=20&reduce=false&descending=true
+

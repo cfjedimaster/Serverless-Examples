@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "tone",
   "version": "1.0.0",
@@ -12,3 +13,19 @@
     "watson-developer-cloud": "^2.27.1"
   }
 }
+=======
+{
+  "name": "tone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "watson-developer-cloud": "^2.41.1"
+  }
+}
+>>>>>>> 148ed1a53925d60adfe2eebbea16bf14a9591922

@@ -1,0 +1,6 @@
+{
+    "dbname":"blog",
+    "params":{
+        "include_docs":true
+    }
+}

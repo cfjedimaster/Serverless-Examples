@@ -97,6 +97,7 @@
 						forecast (IBM Weather Insights 10-day forecast)
 						<p/>
 						<b>Sample Input:</b>
+<<<<<<< HEAD
 						<pre><code>{
 	&quot;latitude&quot;: &quot;34.063&quot;,
 	&quot;longitude&quot;: &quot;-84.217&quot;,
@@ -114,6 +115,25 @@
 			&quot;narrative&quot;: &quot;Cloudy&quot;
 		}
 	]
+=======
+						<pre><code>{
+	&quot;latitude&quot;: &quot;34.063&quot;,
+	&quot;longitude&quot;: &quot;-84.217&quot;,
+	&quot;password&quot;: &quot;XXX&quot;,
+	&quot;username&quot;: &quot;XXX&quot;
+}</code></pre>
+						<p/>
+						<b>Sample Output:</b>
+						<pre><code>{
+	&quot;forecasts&quot;: [
+		{
+			&quot;dow&quot;: &quot;Monday&quot;,
+			&quot;max_temp&quot;: 38,
+			&quot;min_temp&quot;: 30,
+			&quot;narrative&quot;: &quot;Cloudy&quot;
+		}
+	]
+>>>>>>> 148ed1a53925d60adfe2eebbea16bf14a9591922
 }</code></pre>
 					</td>
 					<td>
@@ -161,6 +181,7 @@
 						pollen (Weather.com pollen information)
 						<p/>
 						<b>Sample Input:</b>
+<<<<<<< HEAD
 						<pre><code>{
 	&quot;latitude&quot;: &quot;34.063&quot;,
 	&quot;apiKey&quot;: &quot;XXX&quot;,
@@ -192,6 +213,39 @@
 			&quot;process_time_gmt&quot;: 1396983306
 		}
 	]
+=======
+						<pre><code>{
+	&quot;latitude&quot;: &quot;34.063&quot;,
+	&quot;apiKey&quot;: &quot;XXX&quot;,
+	&quot;longitude&quot;: &quot;-84.217&quot;
+}</code></pre>
+						<p/>
+						<b>Sample Output:</b>
+						<pre><code>{
+	&quot;pollenobservations&quot;: [
+		{
+			&quot;pollenobservation&quot;: [
+				{
+					&quot;pollen_idx&quot;: &quot;4&quot;,
+					&quot;pollen_desc&quot;: &quot;Very High&quot;,
+					&quot;pollen_type&quot;: &quot;Tree&quot;
+				}
+			],
+			&quot;loc_nm&quot;: &quot;Atlanta&quot;,
+			&quot;total_pollen_cnt&quot;: 1156,
+			&quot;rpt_dt&quot;: &quot;2016-03-29T12:26:00Z&quot;,
+			&quot;class&quot;: &quot;pollenobs&quot;,
+			&quot;loc_id&quot;: &quot;ATL&quot;,
+			&quot;treenames&quot;: [
+				{
+					&quot;tree_nm&quot;: &quot;Oak&quot;
+				}
+			],
+			&quot;loc_st&quot;: &quot;GA&quot;,
+			&quot;process_time_gmt&quot;: 1396983306
+		}
+	]
+>>>>>>> 148ed1a53925d60adfe2eebbea16bf14a9591922
 }</code></pre>
 					</td>
 					<td>

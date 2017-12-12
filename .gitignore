@@ -4,3 +4,4 @@ node_modules/
 /temp/*
 creds.json
 private_update.sh
+temp.js

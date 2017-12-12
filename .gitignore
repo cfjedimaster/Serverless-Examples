@@ -3,9 +3,5 @@ node_modules/
 *.zip
 /temp/*
 creds.json
-<<<<<<< HEAD
-private_update.sh
-=======
 private_update.sh
 temp.js
->>>>>>> 148ed1a53925d60adfe2eebbea16bf14a9591922

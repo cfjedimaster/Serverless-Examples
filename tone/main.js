@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-var watson = require('watson-developer-cloud');
-
-function main(args) {
-
-    var tone_analyzer = watson.tone_analyzer({
-=======
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
 function main(args) {
@@ -14,7 +7,6 @@ function main(args) {
 	if(args['tone.password']) args.password = args['tone.password'];
 
     var tone_analyzer = new ToneAnalyzerV3({
->>>>>>> 148ed1a53925d60adfe2eebbea16bf14a9591922
         username: args.username,
         password: args.password,
         version: 'v3',

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JWT Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <div id="app">
+
+        <div v-if="needLogin">
+
+            <h2>Login</h2>
+            <p>
+            <label for="username">Username</label>
+            <input type="text" v-model="username" id="username" required>
+            </p>
+            <p>
+            <label for="password">Password</label>
+            <input type="password" v-model="password" id="password" required>
+            </p>
+
+            <p>
+                <input type="submit" @click="login" value="Login">
+            </p>
+
+            <p v-if="invalidLogin">
+                <b>Invalid Login.</b>
+            </p>
+                
+        </div>
+        <div v-else>
+                <h2>Hello World Demo</h2>
+                <p>
+                <label for="name">Enter Name:</label>
+                <input type="text" v-model="name" id="name" required>
+                </p>
+
+                <p>
+                    <input type="submit" @click="helloWorld" value="Test">
+                </p>
+
+                <p v-if="nameResult"><b>Result: {{nameResult}}</b></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+    const AUTH = 'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/safeToDelete/auth.json';
+    const HELLO = 'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/safeToDelete/safeHelloWorld.json';
+
+    const app = new Vue({
+        el:'#app',
+        data() {
+            return {
+                needLogin:true,
+                username:null,
+                password:null,
+                invalidLogin:false,
+                token:null,
+                name:null,
+                nameResult:null
+            }
+        },
+        methods:{
+            login() {
+                this.invalidLogin = false;
+                console.log('login');
+                fetch(AUTH+'?username='+encodeURIComponent(this.username)+'&password='+encodeURIComponent(this.password))
+                .then(res => res.json())
+                .then(res => {
+                    console.log('result',res);
+                    if(res.message) {
+                        this.invalidLogin = true;
+                    } else if(res.token) {
+                        this.token = res.token;
+                        this.needLogin = false;
+                    }
+                });
+            },
+            helloWorld() {
+                this.nameResult = '';
+                if(this.name.trim() === '') return;
+                fetch(HELLO+'?token='+encodeURIComponent(this.token)+'&name='+encodeURIComponent(this.name))
+                .then(res => res.json())
+                .then(res => {
+                    console.log('result',res);
+                    this.nameResult = res.result;
+                });
+
+            }
+        }
+    })
+    </script>
+</body>
+</html>

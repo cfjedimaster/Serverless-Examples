@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>OpenWhisk Activation Poll</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  		<link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="app.css">
+		<style>
+		[v-cloak] {display: none}
+		</style>
+	</head>
+	<body>
+
+		<div id="app" v-cloak>
+			<v-app dark>
+				<v-toolbar>
+					<v-toolbar-title>OpenWhisk Activation Poll</v-toolbar-title>
+				</v-toolbar>
+
+				<v-content>
+
+					<v-container grid-list-md>
+						<v-layout row wrap>
+
+							<v-flex xs4>
+								<h2>Activations</h2>
+								<v-alert v-for="activation in activations" :key="activation.id"
+								:color="activation.success?'success':'error'" value="true" transition="fade-transition" @click="loadActivation(activation)">
+								{{activation.name}} ran at {{ activation.ts | formatDate }} in
+								{{activation.duration}} ms
+								</v-alert>
+							</v-flex>
+
+							<v-flex xs8>
+								<h2>Activation</h2>
+								<div v-if="activation">
+
+									<h3>{{activation.name}} ({{activation.duration}}ms)</h3>
+
+									<v-expansion-panel expand>
+										<!-- THANK YOU @zaken in the vuetify discord -->
+										<v-expansion-panel-content style="overflow-x: auto" lazy>
+										<div slot="header">Response</div>
+										<v-card>
+											<v-card-text>
+												<pre>{{activation.response}}</pre>
+											</v-card-text>
+										</v-card>
+										</v-expansion-panel-content>
+										<v-expansion-panel-content style="overflow-x: auto" lazy>
+										<div slot="header">Logs</div>
+										<v-card>
+											<v-card-text>
+												<pre>{{activation.logs}}</pre>
+											</v-card-text>
+										</v-card>
+										</v-expansion-panel-content>
+										<v-expansion-panel-content style="overflow-x: auto" lazy>
+										<div slot="header">Annotations</div>
+										<v-card>
+											<v-card-text>
+												<pre>{{activation.annotations}}</pre>
+											</v-card-text>
+										</v-card>
+										</v-expansion-panel-content>
+									</v-expansion-panel>
+
+								</div>
+							</v-flex>
+
+						</v-layout>
+					
+					</v-container>
+
+				</v-content>
+			</v-app>
+		</div>
+
+		<script src="https://momentjs.com/downloads/moment.min.js"></script>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>

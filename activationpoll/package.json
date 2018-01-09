@@ -1,0 +1,17 @@
+{
+  "name": "activationpoll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-cache": "^4.1.1",
+    "openwhisk": "^3.11.0"
+  }
+}

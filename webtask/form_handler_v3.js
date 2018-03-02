@@ -2,7 +2,6 @@
 
 
 const helper = require('sendgrid').mail;
-console.log('helper?', JSON.stringify(helper));
 const RECIPS = ["raymondcamden@gmail.com","ray@camdenfamily.com"];
 
 module.exports = function(context, req, res) {

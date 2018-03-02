@@ -20,7 +20,10 @@
         <div class="container">
             <h2>New Stormtrooper Recruitment Form</h2>
 
-            <form method="post" action="https://wt-c2bde7d7dfc8623f121b0eb5a7102930-0.run.webtask.io/form_handler_v1">
+            <form method="post" action="https://wt-c2bde7d7dfc8623f121b0eb5a7102930-0.run.webtask.io/form_handler">
+                <input type="hidden" name="_subject" value="Stormtrooper Form">
+                <input type="hidden" name="_next" value="https://auth0.com">
+                
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" name="name" id="name" required>
@@ -28,7 +31,7 @@
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" required>
+                    <input type="email" class="form-control" name="_from" id="email" required>
                 </div>
 
                 <div class="form-group">

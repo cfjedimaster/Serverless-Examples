@@ -49,9 +49,7 @@ ${key}:         ${form[key]}
 
 	sendEmail(to,from,subject,content, req.webtaskContext.secrets.sg_key)
 	.then(() => {
-        let fullUrl = 'https://' + req.get('host') + req.originalUrl;
-        console.log(fullUrl);
-		res.writeHead(301, {'Location': fullUrl+'/thanks' });
+		res.writeHead(301, {'Location': req.originalUrl+'/thanks' });
 		res.end();
 	}).catch(e => {
 		// handle error

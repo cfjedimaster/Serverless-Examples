@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/', function (req, res) {
+    res.header('Content-Type', 'text/html');
     res.end(FORM_HTML);
 });
 
@@ -57,7 +58,7 @@ ${key}:         ${form[key]}
 });
 
 app.get('/thanks', function (req, res) {
-    console.log('running thanks');
+    res.header('Content-Type', 'text/html');
     res.end(THANKS_HTML);
 });
 

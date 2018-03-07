@@ -22,10 +22,7 @@ module.exports = function (options, cb) {
 			console.log('in the All for fetching them all.');
 			console.log('result should be an arr i think? ',result.length);
 			res.setHeader('Content-Type', 'application/json');
-			for(x in res) {
-				console.log('RES:'+x);
-			}
-			res.send(JSON.stringify(result));
+			res.end(JSON.stringify(result));
 		})
 		.catch(e => {
 			console.log('error');

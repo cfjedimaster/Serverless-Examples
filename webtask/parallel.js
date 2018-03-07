@@ -20,8 +20,9 @@ module.exports = function (options, cb) {
 		console.log('result should be an arr i think? ',result.length);
 
 		return cb(null, function (context, req, res) {
-			res.send('new test');
-			//cb(null, result);
+			res.writeHead(200, { 'Content-Type': 'text/html '});
+			res.end('<h1>Hello, world! '+(new Date())+'</h1>');
+					//cb(null, result);
 		});
 	
 	}).catch(e => {

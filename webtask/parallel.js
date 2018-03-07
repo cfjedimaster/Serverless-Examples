@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function (options, cb) {
 	console.log('compiler called', options.script);
 	// assume its a json array

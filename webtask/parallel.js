@@ -25,6 +25,7 @@ module.exports = function (options, cb) {
 	}).catch(e => {
 		console.log('Error, sad face...');
 		console.log(e);
+		cb(e);
 	});
 
 };

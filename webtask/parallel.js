@@ -22,6 +22,9 @@ module.exports = function (options, cb) {
 			console.log('in the All for fetching them all.');
 			console.log('result should be an arr i think? ',result.length);
 			console.log('test', req.originalUrl);
+			for(var x in req) {
+				console.log('req',x);
+			}
 			res.setHeader('Content-Type', 'application/json');
 			res.end(JSON.stringify(result));
 		})

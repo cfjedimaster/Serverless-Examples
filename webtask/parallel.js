@@ -3,7 +3,7 @@ module.exports = function (options, cb) {
 	// assume its a json array
 	let seq = JSON.parse(options.script);
 
-    return cb(null, function (cb) {
-      cb(null, "I was sent "+seq.length+" items.");
-    });
+	return cb(null, function (cb) {
+		cb(null, "I was sent "+seq.length+" items.");
+	});
 };

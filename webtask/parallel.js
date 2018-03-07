@@ -21,7 +21,7 @@ module.exports = function (options, cb) {
 		Promise.all(promises).then(result => {
 			console.log('in the All for fetching them all.');
 			console.log('result should be an arr i think? ',result.length);
-			console.log('test', req.originalUrl);
+			console.log('test', req.url);
 			for(var x in req) {
 				console.log('req',x);
 			}

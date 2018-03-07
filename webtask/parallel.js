@@ -9,26 +9,26 @@ module.exports = function (options, cb) {
 
 	seq = ['https://www.raymondcamden.com','https://www.cnn.com'];
 
-	let promises = [];
+	return cb(null, (context, req, res) => {
 
-	seq.forEach(u => {
-		promises.push(rp(u));
-	});
+		console.log('entered CB');
+		let promises = [];
 
-	Promise.all(promises).then(result => {
-		console.log('in the All for fetching them all.');
-		console.log('result should be an arr i think? ',result.length);
-
-		return cb(null, function (context, req, res) {
-			res.writeHead(200, { 'Content-Type': 'text/html '});
-			res.end('<h1>Hello, world! '+(new Date())+'</h1>');
-					//cb(null, result);
+		seq.forEach(u => {
+			promises.push(rp(u));
 		});
-	
-	}).catch(e => {
-		console.log('Error, sad face...');
-		console.log(e);
-		cb(e);
+		console.log('pushed '+promises.length+' items');
+		Promise.all(promises).then(result => {
+			console.log('in the All for fetching them all.');
+			console.log('result should be an arr i think? ',result.length);
+			res.setHeader('Content-Type', 'application/json');
+			res.send(JSON.stringify(result));
+		})
+		.catch(e => {
+			console.log('error');
+			console.log(e);
+		});
+
 	});
 
 };

@@ -22,6 +22,9 @@ module.exports = function (options, cb) {
 			cb(null, result);
 		});
 	
+	}).catch(e => {
+		console.log('Error, sad face...');
+		console.log(e);
 	});
 
 };

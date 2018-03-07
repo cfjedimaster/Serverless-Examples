@@ -16,10 +16,10 @@ module.exports = function (options, cb) {
 		promises.push(rp(u));
 	});
 
-	Promises.all(promises).then(result => {
+	Promise.all(promises).then(result => {
 		console.log('in the All for fetching them all.');
 		console.log('result should be an arr i think? ',result.length);
-		
+
 		return cb(null, function (cb) {
 			cb(null, "I was sent "+seq.length+" items.");
 		});

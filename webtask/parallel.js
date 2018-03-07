@@ -22,6 +22,7 @@ module.exports = function (options, cb) {
 			console.log('in the All for fetching them all.');
 			console.log('result should be an arr i think? ',result.length);
 			res.setHeader('Content-Type', 'application/json');
+			console.log('set header just fine');
 			res.send(JSON.stringify(result));
 		})
 		.catch(e => {

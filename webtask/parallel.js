@@ -7,13 +7,11 @@ module.exports = function (options, cb) {
 	// assume its a json array
 	let seq = JSON.parse(options.script);
 
-	// fake the array for now
-	seq = ['https://www.raymondcamden.com','https://www.cnn.com'];
 
 	let promises = [];
 
 	seq.forEach(u => {
-		promises.push(rp(u));
+		promises.push(rp('/'+u));
 	});
 
 	Promise.all(promises).then(result => {

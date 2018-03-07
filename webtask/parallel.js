@@ -21,7 +21,7 @@ module.exports = function (options, cb) {
 		console.log('result should be an arr i think? ',result.length);
 
 		return cb(null, function (cb) {
-			cb(null, "I was sent "+seq.length+" items.");
+			cb(null, result);
 		});
 	
 	});

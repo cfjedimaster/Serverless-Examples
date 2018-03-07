@@ -7,7 +7,8 @@ module.exports = function (options, cb) {
 	// assume its a json array
 	let seq = JSON.parse(options.script);
 
-
+	seq = ['https://www.raymondcamden.com','https://www.cnn.com'];
+	
 	let promises = [];
 
 	seq.forEach(u => {
@@ -18,8 +19,9 @@ module.exports = function (options, cb) {
 		console.log('in the All for fetching them all.');
 		console.log('result should be an arr i think? ',result.length);
 
-		return cb(null, function (cb) {
-			cb(null, result);
+		return cb(null, function (context, req, res) {
+			res.send('new test');
+			//cb(null, result);
 		});
 	
 	}).catch(e => {

@@ -8,11 +8,11 @@ module.exports = function (options, cb) {
 	let seq = JSON.parse(options.script);
 
 	seq = ['https://www.raymondcamden.com','https://www.cnn.com'];
-	
+
 	let promises = [];
 
 	seq.forEach(u => {
-		promises.push(rp('/'+u));
+		promises.push(rp(u));
 	});
 
 	Promise.all(promises).then(result => {

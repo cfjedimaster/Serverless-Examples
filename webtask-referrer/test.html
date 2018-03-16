@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', init, false);
+			function init() {
+				console.log('do fetch');
+				fetch('https://wt-c2bde7d7dfc8623f121b0eb5a7102930-0.run.webtask.io/securetest1')
+				.then(res => res.json())
+				.then(res => {
+					console.log('result is '+JSON.stringify(res));
+				})
+				.catch(e => {
+					console.error(e);
+				});
+			}
+		</script>
+
+	</body>
+</html>

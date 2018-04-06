@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<style>
+		[v-cloak] {display: none}
+		</style>
+	</head>
+	<body>
+
+		<form id="infoForm" v-cloak>
+			<p>
+			<label for="name">Name:</label>
+			<input type="text" v-model="name" id="name" required>
+			</p>
+
+			<p>
+			<label for="email">Email:</label>
+			<input type="email" v-model="email" id="email" required>
+			</p>
+
+			<p>
+			<label for="url">URL:</label>
+			<input type="url" v-model="url" id="url">
+			</p>
+
+			<p>
+				<input type="submit" value="Send Info" @click.prevent="submitForm">
+			</p>
+
+			<div v-if="errors.length">
+				<p>
+					<b>Please correct these errors:</b>
+					<ul>
+						<li v-for="error in errors">{{error}}</li>
+					</ul>
+				</p>
+			</div>
+			<div v-if="formGood">
+				<p>
+					Thanks for filling out the form. We care a lot.
+				</p>
+			</div>
+		</form>
+
+		<script src="https://unpkg.com/vue"></script>
+		<script>
+		const taskEndpoint = 'https://wt-c2bde7d7dfc8623f121b0eb5a7102930-0.run.webtask.io/form_resp1';
+
+		new Vue({
+			el:'#infoForm',
+			data() {
+				return {
+					name:null,
+					email:null,
+					url:null,
+					errors:[],
+					formGood:false
+				}
+			},
+			methods:{
+				submitForm() {
+					this.errors = [];
+					this.formGood = false;
+					fetch(taskEndpoint, {
+						body:JSON.stringify({ 
+							name:this.name,
+							email:this.email,
+							url:this.url
+						}),
+						headers: {
+							'content-type':'application/json'
+						}, 
+						method:'POST'
+					})
+					.then(res => res.json())
+					.then(res => {
+						console.log(res);
+						if(res.status) {
+							this.formGood = true;
+						} else {
+							this.errors = res.errors;
+						}
+					});
+				}
+			}
+		});
+		</script>
+
+	</body>
+</html>

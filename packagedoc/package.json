@@ -10,7 +10,7 @@
   "author": "Raymond Camden <raymondcamden@gmail.com> (https://www.raymondcamden.com)",
   "license": "ISC",
   "dependencies": {
-    "handlebars": "^4.0.10",
+    "handlebars": "^4.5.3",
     "openwhisk": "^3.7.0"
   }
 }

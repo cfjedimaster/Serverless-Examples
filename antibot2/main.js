@@ -81,8 +81,8 @@ function main(params) {
 		"response": {
 			"shouldEndSession": true,
 			"outputSpeech": {
-				"type": "PlainText",
-				"text": text
+				"type": "SSML",
+				"ssml": `<speak><amazon:emotion name="disappointed" intensity="high"><prosody volume="x-loud">${text}</prosody></amazon:emotion></speak>`
 			}
 		}
 	}
